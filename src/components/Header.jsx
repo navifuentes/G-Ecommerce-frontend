@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser } from "../reducers/userReducer";
 import { initializeCart } from "../reducers/cartReducer";
+import { FaSearch } from "react-icons/fa";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -21,20 +22,35 @@ const Header = () => {
   return (
     <div className="sticky top-0 z-10">
       {/* LARGE QUERY */}
-      <nav className=" text-white md:text-3xl hidden sm:flex justify-between gap-x-8 bg-black/30 backdrop-blur-sm border-b border-white-900/10 sm:px-10 sm:py-4">
-        <Link to="/">
-          <p className="text-slate-700 flex flex-col sm:block">
+      <nav className=" text-white md:text-2xl hidden sm:flex justify-between gap-x-8 bg-sky-950/80 backdrop-blur-sm border-b border-white-900/10 sm:px-10">
+        <Link className="self-center" to="/">
+          <p className="text-white flex flex-col sm:block">
             Generic
-            <span className="text-slate-400 sm:ml-2">E-Commerce</span>
+            <span className="text-black sm:ml-2">E-Commerce</span>
           </p>
         </Link>
 
-        <div className="flex gap-x-6">
-          <Link className="hover:opacity-40" to="/">HOME</Link>
-          <Link className="hover:opacity-40" to="/categories">CATEGORIES</Link>
-          <Link className="hover:opacity-40" to="/menu">MENU</Link>
+        <div className="flex flex-col pt-2">
+          <div className="relative flex items-center mb-2">
+            <input
+              className="mx-auto border-2 border-black text-black"
+              type="search"
+            />
+            <FaSearch className="absolute right-8 text-black" />
+          </div>
+          <div className="flex self-end gap-x-6">
+            <Link className="hover:opacity-40" to="/">
+              HOME
+            </Link>
+            <Link className="hover:opacity-40" to="/categories">
+              CATEGORIES
+            </Link>
+            <Link className="hover:opacity-40" to="/menu">
+              PANEL
+            </Link>
+          </div>
         </div>
-        <div className="relative flex gap-x-2">
+        <div className="relative self-center flex gap-x-2">
           <div className="text-sm">
             <Link to="/profile">
               <img
@@ -49,7 +65,9 @@ const Header = () => {
             <div className="absolute right-0 text-xs font-bold ring-1 ring-red-600 rounded-tr-full rounded-tl-full rounded-br-full bg-red-600 px-1">
               {cart ? cart.products.length : 0}
             </div>
-            <Link className="text-3xl" to="/cart">&#128722;</Link>
+            <Link className="text-3xl" to="/cart">
+              &#128722;
+            </Link>
           </div>
         </div>
       </nav>
@@ -58,11 +76,6 @@ const Header = () => {
         className={`sm:hidden bg-black/50 ${rounded} px-20 py-1 mt-[0.25em] ring-2 ring-white/30`}
       >
         <div className="flex items-center gap-x-10">
-          {/* <img
-            className="w-10 h-10 bg-white/10 rounded-full ring-1 ring-white/40"
-            src=""
-            alt=""
-          /> */}
           <button
             className={`text-white text-3xl ${visibility1}`}
             onClick={() => setShow(!show)}

@@ -1,11 +1,9 @@
 import { useField } from "../hooks/useField";
 import { useDispatch } from "react-redux";
 import { initializeUser } from "../reducers/userReducer";
-import { useCookies } from "react-cookie";
 
 const Login = () => {
   const dispatch = useDispatch();
-  //const [cookies] = useCookies(["userCookie"]);
   const [username, resetUsername] = useField("text");
   const [password, resetPassword] = useField("password");
 
@@ -46,7 +44,7 @@ const Login = () => {
       </form>
       <div className="text-white font-bold">
         Don't have an account ?{" "}
-        <button className="text-white/20 hover:text-white/50">
+        <button className="text-black/80 hover:text-white/50">
           {" "}
           register{" "}
         </button>{" "}

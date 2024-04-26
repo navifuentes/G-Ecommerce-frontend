@@ -37,7 +37,7 @@ function App() {
 
   if (!user) {
     return (
-      <div className="h-screen bg-gray-800">
+      <div className="h-screen bg-cyan-800">
         <Login />
       </div>
     );
@@ -57,7 +57,7 @@ function App() {
 
   return (
     <Router>
-      <div className="bg-slate-800 relative min-h-screen">
+      <div className="bg-gradient-to-br from-cyan-100 via-cyan-800  to-cyan-100 relative min-h-screen font-roboto">
         <Header notify={notify} />
         <ToastContainer />
         <Routes>

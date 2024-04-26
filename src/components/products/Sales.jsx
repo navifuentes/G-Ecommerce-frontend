@@ -6,9 +6,9 @@ const Sales = ({ products }) => {
   const [showNavArrows, setShowNavArrows] = useState(false);
   const ImgContainer = ({ item }) => {
     return (
-      <div className="py-4 min-w-full relative flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-600  to-slate-400">
+      <div className="py-4 min-w-full relative flex items-center justify-center bg-sales bg-cover">
         <div className="ml-48 text-3xl -rotate-45">Sale 50%</div>
-        <img className="sm:h-[40vh] mx-auto rounded-full" src={item.original} />
+        <img className="sm:h-[40vh] mx-auto rounded-3xl" src={item.original} />
         <div className="mr-48 text-3xl -rotate-45">Sale 50%</div>
       </div>
     );

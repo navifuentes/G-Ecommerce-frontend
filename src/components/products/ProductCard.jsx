@@ -6,17 +6,17 @@ const ProductCard = ({ product }) => {
     navigate(`/products/${pid}`);
   };
   return (
-    <div
-      className="flex flex-col items-center ring-2 ring-white/70 rounded-lg bg-slate-600 min-w-1/3 max-w-36 text-center"
-    >
-      <h3 className="text-xl">{product.title}</h3>
+    <div className="flex flex-col items-center ring-2 ring-white/70 rounded-lg bg-slate-200 min-w-1/3 max-w-36 text-center">
       <img
-        className="h-20 sm:h-36"
+        className="h-20 sm:h-36 rounded-lg"
         src={product.thumbnail || "https://placehold.co/150"}
         alt={product.description || ""}
       />
-      <div className="flex flex-col items-center px-1">
-        <p className="h-7 overflow-y-hidden">{product.description}</p>
+      <div className="flex flex-col overflow-hidden max-w-full items-center px-1 text-black">
+        <h3 className="text-xl capitalize max-w-full truncate">
+          {product.title} 
+        </h3>
+        <p className="h-10 max-w-full truncate">{product.description}</p>
         <span>$ {product.price}</span>
       </div>
       <button

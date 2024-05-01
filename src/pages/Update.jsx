@@ -10,7 +10,7 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 
-const Update = () => {
+const Update = ({ notify }) => {
   const dispatch = useDispatch();
   const fileRef = useRef(null);
   const [file, setFile] = useState(undefined);
@@ -85,8 +85,9 @@ const Update = () => {
       price: price.value,
       thumbnail: thumbnail || product.thumbnail,
     };
-    console.log(product._id);
-    console.log(update);
+
+    notify("Product updated successfully!", "success");
+
     dispatch(putProduct(product._id, update));
   };
 

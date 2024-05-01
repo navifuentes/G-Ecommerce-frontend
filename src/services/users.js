@@ -18,3 +18,7 @@ export const update = async (uid, update) => {
   const result = await axios.put(`${baseUrl}/${uid}`, update);
   return result.data.payload;
 };
+export const create = async (user)=> {
+  const result = await axios.post(`${baseUrl}/register`, user) 
+  return result.data
+}

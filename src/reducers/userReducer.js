@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logIn, logOut, current, update } from "../services/users";
+import { logIn, logOut, current, update, create } from "../services/users";
 
 const initialState = null;
 
@@ -41,6 +41,11 @@ export const updateUser = (uid, body) => {
   return async (dispatch) => {
     const user = await update(uid, body);
     dispatch(setUser(user));
+  };
+};
+export const createUser = (user) => {
+  return async () => {
+    await create(user);
   };
 };
 

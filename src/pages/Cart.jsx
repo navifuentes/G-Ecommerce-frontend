@@ -8,10 +8,13 @@ const Cart = ({ notify }) => {
 
   return (
     <div className="flex sm:min-h-96 items-center justify-evenly ring-white ring-2 rounded-xl text-white sm:m-4">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center bg-blue-800/50 rounded-3xl">
         <h3 className="text-2xl">Your products: </h3>
         {cart.products.length === 0 ? (
-          <span className="bg-slate-600 px-2 rounded-lg"> No products in cart </span>
+          <span className="bg-slate-600 px-2 rounded-lg">
+            {" "}
+            No products in cart{" "}
+          </span>
         ) : (
           cart.products.map((p) => <CartItem key={p.id} product={p} />)
         )}

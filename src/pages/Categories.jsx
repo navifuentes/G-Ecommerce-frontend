@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import ProductListItem from "../components/products/ProductListItem";
 
 const Categories = () => {
-  const products = useSelector((state) => state.products).filter(
-    (p) => p.status !== false
-  );
+  const products = useSelector((state) => state.products);
+
+  const filteredProducts = products
+    ? products.filter((p) => p.status !== false)
+    : [];
   const [prodFilter, setProdFilter] = useState(undefined);
 
   useEffect(() => {
@@ -18,10 +20,10 @@ const Categories = () => {
 
   if (!products) return <div>Loading...</div>;
 
-  const filteredProducts =
+  const categoryProducts =
     prodFilter === "all"
-      ? products
-      : products.filter((p) => p.category === prodFilter);
+      ? filteredProducts
+      : filteredProducts.filter((p) => p.category === prodFilter);
 
   return (
     <div className="flex flex-col items-center">
@@ -40,7 +42,7 @@ const Categories = () => {
         </select>
       </div>
       <div className="flex flex-col justify-center gap-8 mb-14 min-w-3/4">
-        {filteredProducts.map((p) => (
+        {categoryProducts.map((p) => (
           <ProductListItem key={p._id} product={p} />
         ))}
       </div>

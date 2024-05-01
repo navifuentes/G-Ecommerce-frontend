@@ -1,8 +1,11 @@
 import { useField } from "../hooks/useField";
 import { useDispatch } from "react-redux";
 import { initializeUser } from "../reducers/userReducer";
+import { useNavigate } from "react-router-dom";
+import PasswordField from "../components/PasswordField";
 
 const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [username, resetUsername] = useField("text");
   const [password, resetPassword] = useField("password");
@@ -29,26 +32,33 @@ const Login = () => {
       >
         <div className="flex flex-col items-center text-gray-200">
           Username:
-          <input {...username} className="border-2 border-black text-black" />
+          <input
+            {...username}
+            className="w-full border-2 border-black text-black"
+          />
         </div>
-        <div className="flex flex-col items-center text-gray-200">
-          Password:
-          <input {...password} className="border-2 border-black text-black" />
+        <div className="flex flex-col items-center text-white">
+          Password :
+          <div className="relative flex border-2 border-black text-black items-center">
+            <PasswordField password={password} />
+          </div>
         </div>
         <button
-          className="border-2 border-white bg-blue-800 text-white rounded-full"
+          className="capitalize border-2 border-white bg-blue-800 text-white rounded-full"
           type="submit"
         >
           login
         </button>
       </form>
       <div className="text-white font-bold">
-        Don't have an account ?{" "}
-        <button className="text-black/80 hover:text-white/50">
+        Don't have an account ? register{" "}
+        <button
+          onClick={() => navigate("/register")}
+          className="text-black/80 hover:text-white/50"
+        >
           {" "}
-          register{" "}
-        </button>{" "}
-        here
+          here
+        </button>
       </div>
     </div>
   );

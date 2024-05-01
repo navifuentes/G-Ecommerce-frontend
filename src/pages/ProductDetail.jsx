@@ -19,11 +19,11 @@ const ProductDetail = ({ notify }) => {
   };
   const handleAdd = (cid, pid, qty) => {
     dispatch(updateCart(cid, pid, qty));
-    notify("Product added to cart!")
+    notify("Product added to cart!");
   };
 
   return (
-    <div className="my-10 mx-6 flex self-center items-center bg-slate-600 ring-2 ring-white rounded-xl p-3 text-white">
+    <div className="my-10 mx-6 flex self-center items-center bg-slate-200 ring-2 ring-white rounded-xl p-3 text-white">
       <div className="flex flex-col gap-10 items-center mx-auto">
         <img
           className="sm:size-72 self-center rounded-lg shadow-2xl"
@@ -36,20 +36,20 @@ const ProductDetail = ({ notify }) => {
           <p>$ {product.price}</p>
         </div>
       </div>
-      <div className="flex flex-col gap-1 text-center p-2 ring-2 ring-white rounded-md">
-        <div className="ring-1 ring-white px-1 rounded-md">
+      <div className="flex flex-col gap-1 text-center p-2 ring-2 ring-white rounded-md bg-slate-700">
+        <div className="bg-slate-800/50 px-1 rounded-md">
           <p>Product Owner :</p>
           <p>{product.owner}</p>
         </div>
-        <div className="ring-1 ring-white px-1 rounded-md">
+        <div className="bg-slate-800/50 px-1 rounded-md">
           <p>Code:</p>
           <p>{product.code}</p>
         </div>
-        <div className="ring-1 ring-white px-1 rounded-md">
+        <div className="bg-slate-800/50 px-1 rounded-md">
           <p>Category:</p>
           <p>{product.category}</p>
         </div>
-        <div className="ring-1 ring-white px-1 rounded-md">
+        <div className="bg-slate-800/50 px-1 rounded-md">
           <p>Product Stock :</p>
           <p>{product.stock}</p>
         </div>

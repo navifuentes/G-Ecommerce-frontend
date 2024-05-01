@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const Menu = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col text-white bg-add-product bg-cover h-[80vh]">
+    <div className="flex flex-col text-white bg-add-product bg-cover h-[90vh]">
       <h2 className="bg-black/50 rounded-full my-4 px-4 py-1 self-center  text-3xl">Choose an option :</h2>
       <div className="flex justify-around py-10">
         <div

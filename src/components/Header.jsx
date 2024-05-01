@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser } from "../reducers/userReducer";
 import { initializeCart } from "../reducers/cartReducer";
-import { FaSearch } from "react-icons/fa";
+import SearchField from "./products/SearchField";
 
 const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const cart = useSelector((state) => state.cart);
-
+  const products = useSelector((state) => state.products);
   const [show, setShow] = useState(false);
   const visibility1 = show ? "hidden" : "";
   const visibility2 = show ? "" : "hidden";
   const rounded = show ? "rounded-3xl" : "rounded-full";
-
+  let leak = [];
   useEffect(() => {
     dispatch(initializeCart(user.cart));
   }, []);
@@ -32,11 +32,7 @@ const Header = () => {
 
         <div className="flex flex-col pt-2">
           <div className="relative flex items-center mb-2">
-            <input
-              className="mx-auto border-2 border-black text-black"
-              type="search"
-            />
-            <FaSearch className="absolute right-8 text-black" />
+            <SearchField products={products} />
           </div>
           <div className="flex self-end gap-x-6">
             <Link className="hover:opacity-40" to="/">
